@@ -3,16 +3,24 @@ const ganache = require('ganache-cli');
 const Web3 = require('web3');
 const web3 = new Web3(ganache.provider());
 
+let accounts;
 // mocha function test
-beforeEach(() => {
-    // get a list of all accounts
-    web3.eth.getAccounts().then(fetchedAccounts => {
-        console.log(fetchedAccounts);
-    });
+beforeEach(async () => {
+    // get a list of all accounts (Using async await syntax) / much simpler
+    accounts = await web3.eth.getAccounts();
 });
 
+// beforeEach(() => {
+//     // get a list of all accounts (Using a Promise syntax)
+//     web3.eth.getAccounts().then(fetchedAccounts => {
+//         console.log(fetchedAccounts);
+//     });
+// });
+
 describe('Inbox', () => {
-    it('deploys a contract', () => {});
+    it('deploys a contract', () => {
+        console.log(accounts);
+    });
 });
 
 
