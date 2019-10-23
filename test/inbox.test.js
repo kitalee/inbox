@@ -4,6 +4,17 @@ const Web3 = require('web3');
 const web3 = new Web3(ganache.provider());
 
 // mocha function test
+beforeEach(() => {
+    // get a list of all accounts
+    web3.eth.getAccounts().then(fetchedAccounts => {
+        console.log(fetchedAccounts);
+    });
+});
+
+describe('Inbox', () => {
+    it('deploys a contract', () => {});
+});
+
 
 // class Car {
 //     park(){
